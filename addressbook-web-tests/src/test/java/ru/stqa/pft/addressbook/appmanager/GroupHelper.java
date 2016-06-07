@@ -39,8 +39,8 @@ public class GroupHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
-    public void initGroupModification() {
-        click(By.name("edit"));
+    public void initGroupModification(int numContact) {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[" + numContact + "]/td[8]/a/img"));
     }
 
     public void submitGroupModification() {

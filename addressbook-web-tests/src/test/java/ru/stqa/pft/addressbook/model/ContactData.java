@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.tests;
+package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
     private final String firstName;
@@ -20,13 +20,13 @@ public class ContactData {
     private final String notes;
     private final String year;
     private final String year2;
-    private final String date1;
-    private final String month1;
-    private final String date2;
-    private final String month2;
-    private final String group;
+    private final int date1;
+    private final int month1;
+    private final int date2;
+    private final int month2;
+    private int group;
 
-    public ContactData(String firstName, String middleName, String lastName, String nickname, String title, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email1, String email2, String homepage, String address2, String home, String notes, String year, String year2, String date1, String month1, String date2, String month2, String group) {
+    public ContactData(String firstName, String middleName, String lastName, String nickname, String title, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email1, String email2, String homepage, String address2, String home, String notes, String year, String year2, int date1, int month1, int date2, int month2, int group) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -129,23 +129,23 @@ public class ContactData {
         return year2;
     }
 
-    public String getDate1() {
+    public int getDate1() {
         return date1;
     }
 
-    public String getMonth1() {
+    public int getMonth1() {
         return month1;
     }
 
-    public String getDate2() {
+    public int getDate2() {
         return date2;
     }
 
-    public String getMonth2() {
+    public int getMonth2() {
         return month2;
     }
 
-    public String getGroup() {
+    public int getGroup() {
         return group;
     }
 }

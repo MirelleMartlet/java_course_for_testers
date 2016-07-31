@@ -98,4 +98,15 @@ public class ContactHelper extends HelperBase {
 
         click(By.xpath("//div[@id='content']/form[1]/input[22]"));
     }
+
+    public void createContact(ContactData contact) {
+        initContactCreation();
+        fillContactForm(contact);
+        submitContactCreation();
+        returnToContactPage();
+    }
+
+    public boolean isThereAContact() {
+        return isAlertPresent(By.name("selected[]"));
+    }
 }

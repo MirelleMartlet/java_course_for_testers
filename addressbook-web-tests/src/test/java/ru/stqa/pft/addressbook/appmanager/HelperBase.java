@@ -29,7 +29,13 @@ public class HelperBase {
             }
         }
     }
-    public void  isAlertPresent() {
-        wd.switchTo().alert().accept();
+    public boolean isAlertPresent(By name) {
+        try {
+            wd.switchTo().alert().accept();
+            return true;
+        }
+        catch (NoAlertPresentException e) {
+            return false;
+        }
     }
 }

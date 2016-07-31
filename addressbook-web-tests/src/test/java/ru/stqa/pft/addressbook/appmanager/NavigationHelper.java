@@ -14,7 +14,26 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoGroupPage() {
+
+        if (isAlertPresent(By.tagName("h1"))
+                && wd.findElement(By.tagName("h1")).getText().equals("Groups")
+                && isAlertPresent(By.name("new"))) {
+            return;
+        }
         click(By.linkText("groups"));
     }
+
+
+
+    public void gotoEditGroup() {
+        if (wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+                && wd.findElement(By.tagName("label")).getText().equals("Group")){
+            return;
+        }
+        click(By.linkText("add new"));
+    }
+
+
+
 
 }

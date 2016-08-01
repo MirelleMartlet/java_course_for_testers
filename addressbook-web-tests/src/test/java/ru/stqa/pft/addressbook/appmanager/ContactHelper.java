@@ -86,17 +86,17 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));;
     }
 
-    public void selectContact() {
-        click(By.name("selected[]"));
+    public void selectContact(int index) {
+        wd.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void initContactModification(int numContact) {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[" + String.valueOf(numContact) + "]/td[8]/a/img"));;
+        click(By.xpath(".//*[@id='maintable']/tbody/tr["+ (numContact + 2) +"]/td[8]/a/img"));
     }
 
     public void submitContactModification() {
 
-        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+        click(By.name("update"));
     }
 
     public void createContact(ContactData contact) {
@@ -107,6 +107,10 @@ public class ContactHelper extends HelperBase {
     }
 
     public boolean isThereAContact() {
-        return isAlertPresent(By.name("selected[]"));
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
     }
 }

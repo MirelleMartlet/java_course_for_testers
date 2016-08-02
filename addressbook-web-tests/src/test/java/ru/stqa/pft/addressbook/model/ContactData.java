@@ -24,9 +24,11 @@ public class ContactData {
     private final int month1;
     private final int date2;
     private final int month2;
+    private Integer id;
     private int group;
 
-    public ContactData(String firstName, String middleName, String lastName, String nickname, String title, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email1, String email2, String homepage, String address2, String home, String notes, String year, String year2, int date1, int month1, int date2, int month2, int group) {
+    public ContactData(Integer id, String firstName, String middleName, String lastName, String nickname, String title, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email1, String email2, String homepage, String address2, String home, String notes, String year, String year2, int date1, int month1, int date2, int month2, int group) {
+        this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -52,6 +54,63 @@ public class ContactData {
         this.month2 = month2;
         this.group = group;
     }
+
+    public ContactData(String firstName, String middleName, String lastName, String nickname, String title, String company, String companyAddress, String homePhone, String mobilePhone, String workPhone, String fax, String email1, String email2, String homepage, String address2, String home, String notes, String year, String year2, int date1, int month1, int date2, int month2, int group) {
+        this.id = Integer.MAX_VALUE;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.companyAddress = companyAddress;
+        this.homePhone = homePhone;
+        this.mobilePhone = mobilePhone;
+        this.workPhone = workPhone;
+        this.fax = fax;
+        this.email1 = email1;
+        this.email2 = email2;
+        this.homepage = homepage;
+        this.address2 = address2;
+        this.home = home;
+        this.notes = notes;
+        this.year = year;
+        this.year2 = year2;
+        this.date1 = date1;
+        this.month1 = month1;
+        this.date2 = date2;
+        this.month2 = month2;
+        this.group = group;
+    }
+
+    public ContactData(Integer id, String firstName, String lastName) {
+        this.id = Integer.MAX_VALUE;
+        this.firstName = firstName;
+        this.middleName = null;
+        this.lastName = lastName;
+        this.nickname = null;
+        this.title = null;
+        this.company = null;
+        this.companyAddress = null;
+        this.homePhone = null;
+        this.mobilePhone = null;
+        this.workPhone = null;
+        this.fax = null;
+        this.email1 = null;
+        this.email2 = null;
+        this.homepage = null;
+        this.address2 = null;
+        this.home = null;
+        this.notes = null;
+        this.year = null;
+        this.year2 = null;
+        this.date1 = 0;
+        this.month1 = 0;
+        this.date2 = 0;
+        this.month2 = 0;
+        this.group = 0;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -147,5 +206,42 @@ public class ContactData {
 
     public int getGroup() {
         return group;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ContactData that = (ContactData) o;
+
+        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        return result;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
